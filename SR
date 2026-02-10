@@ -5,21 +5,29 @@ Detection Details
 ==================
 This should include any information pertinent to the investigation of the associated cases. The information provided within this section should allow for an analyst to fully understand the context of the detections without having to review the DET cases directly. When applicable, this should include, but is not limited to, the following:
 
-Detection Name
+Detection Name   
+Trojan.Maya.Python.Gen
 
 Process / Command Line
+cmd_line: "C:\Program Files\Autodesk\Maya2023\bin\mayapy.exe" P:\pipeline\projects\last_sentinel\tools\REALTIME\asset_management\dev-LSLA_Playblaster-20c3abd\scripts\scripts\run_processes.py C:\ProgramData\Thinkbox\Deadline10\workers\RTUKCPU0017\jobsData\698b4732e22e0cee115f4902\LSLA__MSCN_LSLA_150_Q20_0230_Animation_playblast_v001_Render_Image_Sequences.procs C:\ProgramData\Thinkbox\Deadline10\workers\RTUKCPU0017\jobsData\698b4732e22e0cee115f4902\log.txt
 
-Parent Process / Command Line
+Parent Process Path
+parent_process_path: c:\program files\thinkbox\deadline10\bin\deadlinesandbox.exe
 
-File Paths
+Process Path
+process_path: c:\program files\autodesk\maya2023\bin\mayapy.exe
 
 Users
+user: realtimeuk.local\rendernode
 
 Hosts
+Multiple 
 
 IP addresses
+N/A
 
 URLs
+N/A
 
 Registry information
 
