@@ -1,0 +1,46 @@
+Completed Analysis Summary
+
+Completed Analysis Summary Format
+Outline the Cause of the case (why did the case get triggered?)
+
+Detail the Activity that was used to determine the Severity and Category
+
+State what Actions were taken by the agent or the analysts. NOTE: We do NOT need to state when actions were NOT taken (either by analyst or agent). 
+
+NOTE: When referencing an AEN use the terminology listed in the MDR Portal, ex. “Response Action - DET-#####.”  
+
+Explain why the activity was or was not malicious. 
+
+NOTE: If a Customer Verification Notification is sent, this section will need to be updated after the NOT is returned.
+
+Reference Example Summary Contents section for example criteria for Completed Analysis Summaries. 
+
+Use quotes for all details for the analysis - hosts, users, domains, IPs, files, etc. 
+
+
+Example Summary Contents
+General
+
+The Bitdefender agent flagged HTTP connections to the domain "bikini.bottom[.]com" via MSBuild by the user "spongebob" on the host "DESKTOP-PINEAPPLE". This was determined to be non-malicious activity attributed to the use of Microsoft Visual Studio for development purposes. 
+
+The Bitdefender agent flagged on “Schedul2.exe” for a memory read on the host “SERVER”. The application is an Acronis process, and this is expected behavior when performing a backup task.
+
+ 
+
+Case with Recommendation
+
+The Bitdefender agent flagged suspicious files from an "E:" drive on the host “1-2-Buckle-my-shoe”. Access and execution of these files have been blocked by the agent, and a recommendation has been provided. There were no suspicious executions associated with any other files from the “E:” drive. 
+
+ 
+
+Case with a Customer Verification Notification
+
+Initial CAS / No Response
+
+The Bitdefender agent flagged network scans targeting the unmanaged host with the IP address of “192.168.1.2” by the user "admin" from the host "Lappy-top". The agent blocked the scanning. A verification notification was sent to confirm whether this is authorized activity. No other suspicious activity was observed.
+
+Customer response confirms the activity as authorized
+
+The Bitdefender agent flagged network scans targeting the unmanaged host with the IP address of “192.168.1.2” by the user "admin" from the host "Lappy-top". The agent blocked the scanning. The customer confirmed this to be standard scanning activity.
+
+ 
