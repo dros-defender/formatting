@@ -1,0 +1,23 @@
+When a Customer Exclusion SR is created, there are 2 text fields that need to be populated:
+
+Detection Details - This should include any information pertinent to the investigation of the associated cases. The information provided within this section should allow for an analyst to fully understand the context of the detections without having to review the DET cases directly. When applicable, this should include, but is not limited to, the following:
+
+Detection Name
+
+Process / Command Line
+
+Parent Process / Command Line
+
+File Paths
+
+Users
+
+Hosts
+
+IP addresses
+
+URLs
+
+Registry information
+
+Exclusion Change Justification - The information provided within this field should provide the reasoning behind why this activity needs to be added as an exclusion. This should include any customer approval or evidence that the activity is non-malicious. If the activity is suspicious, we are unable to take actions, or the activity is not valid for an IN - please provide what actions have been taken so far with the case and whether there is any possible impact of missing future detections since these cases are inherently more sensitive. 
