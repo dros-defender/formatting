@@ -1,0 +1,448 @@
+Software Detected/Observed 
+Based on the analysis conducted on the software involved, the recommendation will need to target whether or not the customer should be whitelisting or removing the software. 
+
+Whitelist
+[Internal Justification/Use Case] Known-good software was flagged by the agent and was operating within its expected scope (e.g. backup software flagged for deleting shadow copies).  
+
+
+Whitelist Recommendation Template
+Customer Recommendation Action: 
+
+Bitdefender MDR analysts recommend reviewing <Software> software on <Host(s)> and determine if it is authorized software for the environment. If approved, analysts recommend reviewing the GravityZone policy for the hosts and adding exclusions for the software. 
+
+Host(s): <Host(s)>
+
+File Path(s): <File_Path(s)>
+
+Customer Recommendation Reason:
+
+Due to detections on the software, the Bitdefender agent may impact operations of the software. 
+
+Remove (e.g. Potentially Unwanted Program)
+[Internal Justification/Use Case] Known-bad or suspicious software observed on a device (e.g. PUPs like Web Companion). 
+
+
+Removal Recommendation Template
+Customer Recommendation Action: 
+
+Bitdefender MDR analysts recommend uninstalling and removing associated files for <Software> on <Host(s)>. 
+
+Host(s): <Host(s)>
+
+File Path(s): <File_Path(s)>
+
+Customer Recommendation Reason:
+
+This software is often unwanted or unauthorized software that can exhibit behaviors such as displaying unwanted ads, collecting user data without consent, or introducing security vulnerabilities. By uninstalling and removing associated files, the risk of compromise and potential negative impact on the environment can be mitigated.
+
+Unknown Files/Scripts
+[Internal Justification/Use Case] A file/script was detected and/or blocked by the agent. This will be used for cases where a Foundations customer does not have PAAs.
+
+
+Unknown Files/Scripts/Commands Template
+Customer Recommendation Action:
+
+Bitdefender MDR analysts recommend removing the associated files for <file|script> on <Host(s)>. 
+
+Host(s): <Host(s)>
+
+File Path(s): <File_Path(s)>
+
+Customer Recommendation Reason:
+
+The <file|script> was detected by the Bitdefender agent as suspicious. By uninstalling and removing the associated files, the risk of compromise and potential negative impact on the environment can be mitigated.
+
+Scripts Downloaded from Internet
+[Internal Justification/Use Case] A file/script was detected and/or blocked by the agent that was downloaded from the internet by the user. This recommendation template is intended to cover cases where the script may not be malicious or was already blocked and resolved via PAAs.  
+
+
+Unknown Files/Scripts/Commands Template
+Customer Recommendation Action:
+
+Bitdefender MDR analysts recommend taking the following actions:
+
+Restrict Script Permissions: Implement strict permission controls on systems, only allowing trusted users to execute scripts. Use group policies or local policies to enforce this on Windows, Mac, and Linux systems.
+User Training and Awareness: Educate users on the risks associated with downloading and running scripts from the internet. Conduct regular training on identifying potential malicious scripts, phishing, and safe downloading practices.
+
+ 
+
+Customer Recommendation Reason:
+
+The <file> was captured within a detection by the Bitdefender agent. Downloading and running scripts from untrusted sources can expose systems to malware, data breaches, and unauthorized access. Users often lack the expertise to assess whether a script is safe, making them susceptible to social engineering attacks. User training further empowers users to recognize unsafe practices, creating a security-aware culture.
+
+Host(s): <Host(s)>
+
+File Path(s): <File_Path(s)>
+
+General XDR Recommendation
+[Internal Justification/Use Case] We have detections based on user activity from XDR (MultipleFilesDownloaded, Exfiltration, ExecutableFileUploaded, AdminAnomalies). We want to have the customer review/validate the user is legitimate and is intended to perform these operations. This template exists to outline the formatting for the activity, and it’s expected to be modified for specific use cases with the relevant information for the case. 
+
+
+General XDR Recommendation
+Customer Recommendation Action:
+
+Bitdefender MDR analysts recommend verifying the activity for the user, <user>, to ensure it is authorized. <If additional recommendations exist, add them on - GZ has some good recommendations to consider (e.g. D”Do not allow domain administrator accounts to be used for day-to-day operations that may expose them to potential adversaries on unprivileged systems.”). >
+
+Customer Recommendation Reason:
+
+This user was observed generating alerts within <Cloud Platform> for <Detection/Activity>. 
+
+<Include files, emails, users, URLs, or any other relevant detection details here>
+
+
+Examples:
+
+Customer Recommendation Action:
+Bitdefender MDR analysts recommend verifying the activity for the user, bobby.tables@sql, to ensure it is authorized. 
+
+Customer Recommendation Reason:
+This user was observed generating alerts within SharePoint for downloading multiple files in a short timeframe, as seen below.
+
+Time: 08 Aug 2023 at 21:43:57
+Filename: test.txt
+Filename: test.txt
+Filename: test.txt
+Filename: test.txt
+
+Customer Recommendation Action:
+Bitdefender MDR analysts recommend verifying the activity for the user, DB-Support, to ensure it is authorized.
+
+Customer Recommendation Reason:
+This user was observed generating alerts within Azure AD for granting Domain Administrator access to the user DB-Admin.
+
+ 
+
+Impossible Travel / Logon Anomalies
+[Internal Justification/Use Case] We have detections based on deviations from user logons by XDR (ImpossibleTravel). If we do not have PAA, we want to have the customer take the PAA. 
+
+
+Impossible Travel / Logon Anomalies
+Customer Recommendation Action:
+Reset the following user(s) password: Immediately reset their password, and use a long passphrase for the new password. A passphrase is a string longer than 14 characters formed by a combination of unrelated words.
+
+<user(s)>
+
+Ensure Multi-Factor Authentication (MFA) is enabled for the user(s). 
+
+Validate no unauthorized MFA methods were created for the user(s). 
+
+Customer Recommendation Reason:
+The user(s) were observed with logons from the IP <IP Address>, which deviates from the standard logon baselines for the environment.
+
+Unmanaged Host Identified
+[Internal Justification/Use Case] While working network detections, unmanaged assets can be identified, via IP addresses, as sources of scanning and other activities.
+
+
+Unmanaged Host Identified
+Customer Recommendation Action:
+
+During an investigation, MDR analysts found that the host with IP address "X.X.X.X" does not have the Bitdefender agent installed. MDR analysts recommend installing the agent on this host in order to ensure the host is protected against cybersecurity threats.
+
+Customer Recommendation Reason:
+
+To effectively monitor and protect your systems, it is crucial to have the Bitdefender agent installed on all endpoints in your environment.
+
+ 
+
+Reimage Host (Commodity Malware)
+[Internal Justification/Use Case] Commodity malware detected on an endpoint where multiple malicious components, persistence mechanisms, or system-level modifications were observed, and targeted remediation cannot reliably ensure system integrity.
+
+
+Unmanaged Host Identified
+Customer Recommendation Action:
+
+Bitdefender MDR analysts recommend reimaging the affected host(s) from a known-good source to ensure complete remediation and restoration of system integrity.
+
+Host(s): <Host(s)>
+
+Customer Recommendation Reason:
+
+The affected host(s) exhibited activity associated with commodity malware, including the presence of multiple malicious components and persistence mechanisms within system locations. Due to the scope of the observed activity and the potential for residual artifacts, full system integrity cannot be reliably assured through targeted cleanup alone. Reimaging provides the most effective method to fully remove malicious artifacts and restore the system to a trusted state.
+
+ 
+
+MFA Failed Login Attempt
+[Internal Justification/Use Case] We have detections based on user activity from XDR (MFAFailedLoginAttempt). If we do not have PAA, we want to have the customer take the PAA. 
+
+
+MFA Failed Login Attempt
+Customer Recommendation Action:
+
+<Include username and when available the IP that was flagged / For HUN, just include the users if there is a large amount of data>
+
+Reset the following user(s) password: Immediately reset their password, and use a long passphrase for the new password. A passphrase is a string longer than 14 characters formed by a combination of unrelated words. 
+
+<user(s)>
+
+Review MFA Settings: Confirm that the MFA settings are configured correctly, ensuring that the authentication methods are current and accessible.
+
+Authentication Methods: Validate the security and accessibility of your configured authentication methods. These may include mobile apps, SMS, email, or hardware tokens. Regularly review and update your preferred methods to ensure they are the most secure and convenient for your use.
+
+Registered Devices and Phone Numbers: Scrutinize and confirm the devices and phone numbers currently registered for receiving MFA prompts or codes. Any outdated or unrecognized devices and numbers should be promptly removed. Regularly update this information to avoid any discrepancies and ensure the reliability of MFA prompts.
+
+Backup Codes: Reexamine and, if necessary, regenerate your backup codes. Securely store them in an accessible location to ensure availability if the primary MFA method fails or is unavailable. Regularly review the state of your backup codes and update them as required to maintain account security.
+
+ 
+
+Customer Recommendation Reason:
+
+The user(s) failed to log in three times consecutively within a short time frame due to invalid MFA.
+
+Scanning Activity
+[Internal Justification/Use Case] We have scanning activity within an environment. Either a PAA was/wasn’t taken based on approval. Foundations can’t get a NOT. 
+
+
+Scanning Activity
+Customer Recommendation Action:
+
+Bitdefender MDR analysts recommend taking the following actions to remediate the scanning activity from IP address, <IP>:
+
+Verify the host(s) or network device associated with the IP Address.
+
+Remove the host(s) from the network if it is not authorized to conduct scanning. Whitelist the IP address if the scanning is authorized.
+
+Block the IP/Mac address on applicable network devices if the host(s) cannot be located. 
+
+Add a Bitdefender agent to the host(s), if possible.
+
+Customer Recommendation Reason:
+
+Analysts observed the IP address <IP> conducting scanning activity. Unauthorized scanning is one of the first steps in the attacker methodology that can lead to further exploitation or compromise. 
+
+Endpoint Brute Force Detections
+[Internal Justification/Use Case] We have detections based on brute force attacks via EDR/endpoint detections targeting a specific service or host. 
+
+
+Endpoint Brute Force Detections
+Customer Recommendation Action:
+
+Bitdefender MDR analysts have observed inbound brute force attempts targeting the <SERVICE> service on host <HOST>. Analysts recommend to follow the best practices for securing the service against these attacks.
+
+Use strong passwords (long passphrases formed by a combination of unrelated words).
+
+Enable Multi-Factor Authentication (MFA).
+
+Enable account lockout policies.
+
+Limit access to the service by requiring a VPN connection or by whitelisting only approved IP addresses.
+
+Customer Recommendation Reason:
+
+By following these recommendations, you can significantly enhance the security of your <SERVICE> service and reduce the risk of brute force attacks.
+
+Cloud Brute Force Detections
+[Internal Justification/Use Case] We have detections based on brute force attacks via XDR. 
+
+
+Cloud Brute Force Detections
+Customer Recommendation Action:
+
+Bitdefender MDR analysts have observed inbound brute force attempts targeting <user id> from <IP address>. 
+
+<Include username and when available the IP that was flagged / For HUN, just include the users if there is a large amount of data> 
+
+Use strong passwords (long passphrases formed by a combination of unrelated words). 
+
+Enable Multi-Factor Authentication (MFA). 
+
+Enable account lockout policies. 
+
+Limit access to the service by requiring a VPN connection or by whitelisting only approved IP addresses. 
+
+Customer Recommendation Reason:
+
+ By following these recommendations, you can significantly enhance the security of your users and reduce the risk of brute force attacks. 
+
+Publicly Accessible Service/System/Application
+[Internal Justification/Use Case] We have observed activity/detections for a device that is accessible from the internet. Generally, this will only be relevant as a recommendation in cases where the activity would be considered abnormal (e.g. a user’s device is accessible - not a server hosting a website).  
+
+
+Publicly Accessible Service/System/Application
+Customer Recommendation Action:
+Bitdefender MDR analysts recommend ensuring <Service/Application> on <Host> is not directly accessible from the internet or is restricted to only those who need access. 
+
+Customer Recommendation Reason:
+Devices that are accessible from the internet will be targeted in scans, brute force attacks, and exploit attempts on any services that accept inbound connections. By restricting access to only necessary parties, the risk of successful cyber attacks can be significantly reduced.
+
+Non-Bitdefender Security Software/AV
+[Internal Justification/Use Case] We have observed activity/detections for additional security software or anti-virus on a device. 
+
+
+Non-Bitdefender Security Software/AV
+Customer Recommendation Action: 
+
+Bitdefender MDR analysts recommend removing additional anti-virus software or security tooling as it creates detection discrepancies with the Bitdefender agent.  
+
+Host(s): <Host(s)> 
+
+File Path(s): <File_Path(s)>  
+
+Customer Recommendation Reason: 
+
+MDR analysts identified a security tool that is not in the approved software list provided to Bitdefender. While <security product name> is a known security product, MDR analysts recommend uninstalling the security tool from the affected system as additional security tools can cause conflicts with the Bitdefender agent as well as potentially decrease the performance of the endpoint. 
+
+[DRAFT]EmailExfiltrationByForward
+[Internal Justification/Use Case] We have observed activity/detections for additional security software or anti-virus on a device. 
+
+
+Non-Bitdefender Security Software/AV
+Customer Recommendation Action: 
+
+Bitdefender MDR analysts recommend removing additional anti-virus software or security tooling as it creates detection discrepancies with the Bitdefender agent.  
+
+Host(s): <Host(s)> 
+
+File Path(s): <File_Path(s)>  
+
+Customer Recommendation Reason: 
+
+MDR analysts identified a security tool that is not in the approved software list provided to Bitdefender. While <security product name> is a known security product, MDR analysts recommend uninstalling the security tool from the affected system as additional security tools can cause conflicts with the Bitdefender agent as well as potentially decrease the performance of the endpoint. 
+
+Phishing 
+[Internal Justification/Use Case] We have observed activity/detections associated with phishing. 
+
+
+Phishing
+Customer Recommendation Action:
+
+Bitdefender MDR analysts have identified potential phishing within the environment. 
+
+[Host(s)/User(s)/Email(s)]
+
+[URLs/Attachments]
+
+Analysts recommend taking the following initial steps to investigate and remediate the phishing attempt.
+
+Search across all emails for the sender, subject, links or attachments associated with the phishing email.
+
+Purge the emails identified from the email servers.
+
+Block the associated links or attachments within email filtering, networking, or endpoint tools.
+
+Reset passwords for accounts targeted, and replace them with long passphrases formed by a combination of unrelated words.
+
+After these steps are completed, analysts recommend following these best practices to reduce the risk of future phishing or social engineering attempts.  
+
+Ensure all devices are monitored by Bitdefender MDR.
+
+Enable two-factor authentication (2FA): Two-factor authentication adds an additional layer of security by requiring a second form of verification, such as a text message or authenticator app, along with the password. This can help protect against unauthorized access even if the password is compromised. The 2FA codes should never be shared with anyone. 
+
+Be cautious with emails: Do not open emails or click on links or download attachments from unknown or suspicious sources. Verify the authenticity of emails, especially those requesting sensitive information or urging for immediate action.
+
+Check URLs and domain names: Be wary of URLs or domain names that are misspelled or look suspicious. Always verify the legitimacy of the website or domain before providing any personal or sensitive information.
+
+Be cautious with personal information: Do not provide personal or sensitive information, such as usernames, passwords, or financial details, in response to unsolicited emails or messages. Always verify the authenticity of the request through a trusted channel before sharing any sensitive information.
+
+Use spam filters: Implement spam filters in email systems to automatically filter out known phishing emails and malicious content.
+
+Customer Recommendation Reason: 
+
+Phishing and social engineering attacks can lead to the compromise of sensitive information or unauthorized actions by tricking users into revealing confidential data or performing actions that may compromise security. Prompt investigation and appropriate actions can help mitigate the risk of further incidents and safeguard the security and integrity of systems and data.
+
+Spam Email
+[Internal Justification/Use Case] We have observed activity/detections associated with sent spam emails. 
+
+
+Spam Email
+Customer Recommendation Action:
+
+Bitdefender MDR analysts have identified potential spam emails sent within the environment. 
+
+[Host(s)/User(s)/Email(s)]
+
+[URLs/Attachments]
+
+Analysts recommend taking the following initial steps to investigate and remediate the spam attempt.
+
+Search across all emails for the sender, subject, links or attachments associated with the spam email.
+
+Purge the emails identified from the email servers.
+
+Block the associated links or attachments within email filtering, networking, or endpoint tools.
+
+Reset passwords for accounts sending the spam, and replace them with long passphrases formed by a combination of unrelated words.
+
+After these steps are completed, analysts recommend following these best practices to reduce the risk of future spam attempts.  
+
+Ensure all devices are monitored by Bitdefender MDR.
+
+Enable two-factor authentication (2FA): Two-factor authentication adds an additional layer of security by requiring a second form of verification, such as a text message or authenticator app, along with the password. This can help protect against unauthorized access even if the password is compromised. The 2FA codes should never be shared with anyone. 
+
+Be cautious with emails: Do not open emails or click on links or download attachments from unknown or suspicious sources. Verify the authenticity of emails, especially those requesting sensitive information or urging for immediate action.
+
+Check URLs and domain names: Be wary of URLs or domain names that are misspelled or look suspicious. Always verify the legitimacy of the website or domain before providing any personal or sensitive information.
+
+Be cautious with personal information: Do not provide personal or sensitive information, such as usernames, passwords, or financial details, in response to unsolicited emails or messages. Always verify the authenticity of the request through a trusted channel before sharing any sensitive information.
+
+Use spam filters: Implement spam filters in email systems to automatically filter out known spam emails and malicious content.
+
+Customer Recommendation Reason: 
+
+Spam email attacks can lead to the compromise of sensitive information or unauthorized actions by tricking users into revealing confidential data or performing actions that may compromise security. Prompt investigation and appropriate actions can help mitigate the risk of further incidents and safeguard the security and integrity of systems and data.
+
+Removable Media
+
+Removable Media
+Customer Recommendation Action: 
+
+Analysts recommend using only trusted removable media devices, disabling "AutoRun" if enabled within your environment, and disabling the ability for hosts to execute commands through autorun.inf. Analysts recommend blocking External Storage devices under Device Control Rules on the associated policy for the host. Authorized devices can be whitelisted within the Device Control Exclusions.  
+
+Customer Recommendation Reason: 
+
+Removable media devices, such as flash drives and memory cards, can be used as a common vector for malware to spread across environments. Disabling "AutoRun" and preventing the execution of commands through autorun.inf can help mitigate the risk of malware propagation through removable media devices. Using only trusted removable media devices also reduces the likelihood of introducing potentially malicious software into your environment.
+
+Manual Log Deletion Detections (e.g. WevtutilLogDeletion) 
+
+Manual Log Deletion Detections (e.g. WevtutilLogDeletion) 
+Customer Recommendation Action:
+
+Bitdefender MDR recommends sending the <logs (e.g. Windows Event Logs)> on <host(s)> to a remote location and enabling log rollovers.
+
+Customer Recommendation Reason:
+
+Sending logs to a remote location avoids data allocation issues on the device and to ensure that logs are preserved for analysis. Instead of manually deleting logs, set up log rollover so that older logs are automatically archived or deleted when new logs are generated. This helps to ensure that logs are regularly maintained without triggering alerts for manual deletion.
+
+Outdated Software/Operating System
+
+Outdated Software/Operating System
+Customer Recommendation Action: 
+
+Update <operating system/agent/software> on <host(s)> to the latest version or apply relevant patches and updates as soon as possible.
+
+Customer Recommendation Reason: 
+
+Outdated software and operating systems can contain known vulnerabilities that may be exploited by attackers to gain unauthorized access or execute malicious code. Keeping software and operating systems up-to-date with the latest patches and updates helps to mitigate these risks and enhances overall security posture.
+
+PHASR
+
+PHASR
+Customer Recommendation Action:
+Bitdefender MDR analysts recommend reviewing the use of <Tool> on <Host> by the user <User>, and confirming whether this user is authorized to execute the tool within the environment. If approved, analysts also recommend updating the GravityZone PHASR rules for the host and user to allow future use of the tool.
+
+Host: <Host>
+User: <User>
+Tool: <Tool>
+
+Customer Recommendation Reason:
+The tool was detected as a baseline anomaly for the host and user by PHASR. However, no direct malicious indicators were identified, and the tool is commonly used across the environment by other hosts and user profiles.
+
+CAPTCHA Infostealer
+
+Outdated Software/Operating System
+Customer Recommendation Action: 
+
+Bitdefender MDR analysts reviewed a detection involving a suspicious PowerShell process initiated by user <user>. on host <hostname>.  Bitdefender MDR analysts recommend taking the following actions:
+
+Reset User Credentials: As a precaution, we recommend resetting credentials for the affected user and enforcing a logout from all active sessions to ensure account integrity.
+
+User Awareness Training: Provide the user with additional training focused on recognizing CAPTCHA-based social engineering tactics and the risks associated with free software downloads, which are often used as lures for malware distribution. Encouraging users to only install software from trusted sources can significantly reduce exposure to these types of threats.
+
+Maintain Browser Hardening: Ensure that ad blockers and enhanced protection features remain enabled in all corporate browsers to minimize risk from malvertising, drive-by downloads, and phishing redirections.
+
+Customer Recommendation Reason:
+
+The observed activity is consistent with an attempted delivery of Infostealer malware, triggered by a malicious CAPTCHA-based social engineering lure. This is an increasingly common technique associated with compromised websites or deceptive online ads.
+
+Analysts were able to verify that the Bitdefender agent successfully blocked the suspicious process, preventing its execution and mitigating the threat. 
+
+ 
